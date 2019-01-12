@@ -1,25 +1,25 @@
-// Need to require the mysql package
-var mysql = require('mysql');
+// Set up MySQL connection.
+var mysql = require("mysql");
 
-// Now, we create the MySQL connection object
 var connection;
 
-	connection = mysql.createConnection({
-		port: 3306,
-		host: 'localhost',
-		user: 'root',
-		password: 'password',
-		database: 'burgers'
-	});
+connection = mysql.createConnection({
+        host: "localhost",
+        port: 3306,    
+        user: "root",
+        password: "password",
+        database: "burgers_db"
+    });
 
-// Make the connection to MySQL
+// Make connection.
 connection.connect(function(err) {
-  if (err) {
-    console.error('ERROR: MySQL connection error -- ' + err.stack + '\n\n');
-    return;
-  }
-  console.log('Connected to MySQL database as id ' + connection.threadId + '\n\n');
+    if (err) {
+        console.error("error connecting: " + err.stack);
+        return;
+    }
+    console.log("connected as id " + connection.threadId);
 });
 
-// Export connection for ORM use
+// Export connection for our ORM to use.
 module.exports = connection;
+

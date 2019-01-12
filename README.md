@@ -1,7 +1,56 @@
+# Eat-Da-Burger
 
-## Hamburger Helper App
-This application is a single page, full stack web app, in which a menu of available hamburgers is presented.  
+### Overview (see `sequelize branch`)
 
-User can eat  any of the burgers on the menu. Eating he burger is accomplished by clicking the “Devour It!” button below the burger’s name.  When a burger has been eaten, it is moved to the Burgers Devoured column.
+This app is a burger logger with MySQL, Node, Express, Handlebars and Sequelize, and follows the MVC design pattern.
 
-The user is also able to Add A Burger. To do this, the user simply types in a free-form text description in the “Add A Burger” section of the App.  The new burger will then appear in the Burger to Eat section.  The user may then devour this new burger.
+* Eat-Da-Burger! is a restaurant app that lets users input the names of burgers they'd like to eat.
+
+* Whenever a user submits a burger's name, the app will display the burger on the left side of the page -- waiting to be devoured.
+
+* Each burger in the waiting area also has a `Devour it!` button. When the user clicks it, the burger will move to the right side of the page with customer.
+
+* The app will store every burger in a database, whether devoured or not.
+
+![Image](public/assets/image/eat-da-burger.png)
+
+#### Directory structure
+
+All the recommended files and directories should look like the following structure:
+
+```
+.
+├── config
+│   └── config.json
+│ 
+├── controllers
+│   └── burgers_controller.js
+│
+├── models
+│   ├── index.js
+│   └── burger.js
+│ 
+├── node_modules
+│ 
+├── package.json
+│
+├── public
+│   ├── assets
+│   │   ├── css
+│   │   │   └── burger_style.css
+│   │   ├── img
+│   │   │   └── ...
+│   │   └── js
+│   │       └── burgers.js
+│   └── test.html
+│
+├── schema.sql
+│
+├── server.js
+│
+└── views
+    ├── index.handlebars
+    └── layouts
+        └── main.handlebars
+```
+

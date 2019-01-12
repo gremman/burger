@@ -1,31 +1,27 @@
-// Dependencies.
 var express = require("express");
-var methodOverride = require("method-override");
 var bodyParser = require("body-parser");
-var routes = require('./controllers/burgers_controller.js');
 
+var port = process.env.PORT || 7000;
 
-// Sets up the Express App
 var app = express();
-// Listen either on the port Heroku gives us, or on 8080 if we are running on localhost. 
-var PORT = process.env.PORT || 9000;
 
-// Sets up the Express app to handle data parsing
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.text());
-app.use(bodyParser.json({ type: "application/vnd.api+json" }));
-app.use('/',routes); //use the routes provided in burgers_controller.js
+// Serve static content for the app from the "public" directory in the application directory.
+app.use(express.static("public"));
 
-app.use (express.static(process.cwd() + '/public')); //static content would be served up from the public directory
+app.use(bodyParser.urlencoded({ extended: false }));
 
-var exphbs = require('express-handlebars');
+// Set Handlebars.
+var exphbs = require("express-handlebars");
 
-app.engine('handlebars', exphbs({defaultLayout: 'main'}));
-app.set('view engine', 'handlebars');
+app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+app.set("view engine", "handlebars");
 
+// Import routes and give the server access to them.
+var routes = require("./controllers/burgers_controller.js");
 
-//and let's start the app, listening on the correct PORT (either from the process environment or 8080 if we're on localhost)
-app.listen(PORT, function() {
-  console.log("Eat-Da-Burger listening on http://localhost:" + PORT);
+app.use("/", routes);
+
+app.listen(port, function() {
+    console.log("App listening on http://localhost:" + port)
 });
+

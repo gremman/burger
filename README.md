@@ -1,6 +1,5 @@
-# Eat-Da-Burger
-
-### Overview (see `sequelize branch`)
+# Eat Da Burger!
+This application is a single page, full stack web app, in which a menu of available hamburgers is presented.  
 
 This app is a burger logger with MySQL, Node, Express, Handlebars and Sequelize, and follows the MVC design pattern.
 

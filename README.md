@@ -1,5 +1,5 @@
 
-## Hamburger Helper App
+## Eat Da Burger!
 This application is a single page, full stack web app, in which a menu of available hamburgers is presented.  
 
 User can eat  any of the burgers on the menu. Eating he burger is accomplished by clicking the “Devour It!” button below the burger’s name.  When a burger has been eaten, it is moved to the Burgers Devoured column.
